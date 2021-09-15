@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
