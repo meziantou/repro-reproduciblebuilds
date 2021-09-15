@@ -27,14 +27,15 @@ jobs:
       
     - run: dotnet pack --configuration Release '/p:TargetFramework=net6.0' /bl
       name: Build
-
+      
     - uses: actions/upload-artifact@v2
       if: always()
       with:
-        name: test-results
-        if-no-files-found: error
+        name: build
         retention-days: 3
-        path: "**/*.{binlog,nupkg}"
+        path: |
+          **/*.binlog
+          **/*.nupkg
 
   pack_net5:
     runs-on: windows-2019
@@ -52,7 +53,8 @@ jobs:
     - uses: actions/upload-artifact@v2
       if: always()
       with:
-        name: test-results
-        if-no-files-found: error
+        name: build
         retention-days: 3
-        path: "**/*.{binlog,nupkg}"
+        path: |
+          **/*.binlog
+          **/*.nupkg
